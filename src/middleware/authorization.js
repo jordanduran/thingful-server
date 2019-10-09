@@ -1,12 +1,11 @@
-function requireAuth(req, res, next) {
+function requireAuth(req, res, next) {    
     
-    console.log(req.get('Authorization'))
-
-
-
+    console.log(`Entered authorization`);
+    console.log(req.get('Authorization'));
     next();
+
 }
 
-
-
-module.exports = {requireAuth}
+module.exports = {
+    requireAuth,
+}
