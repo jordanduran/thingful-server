@@ -1,6 +1,10 @@
 function requireAuth(req, res, next) {
+    
     console.log(req.get('Authorization'))
-    next()
+
+
+
+    next();
 }
 
 
