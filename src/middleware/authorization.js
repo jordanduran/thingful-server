@@ -13,7 +13,7 @@ function requireAuth(req, res, next) {
     }else{
         token = authToken.slice(`basic `.length, authToken.length);
     }
-    
+        
     // User Buffer.from to get the username and password
     const [tokenUsername, tokenPassword] = Buffer
         .from(token, 'base64')
@@ -44,7 +44,7 @@ function requireAuth(req, res, next) {
                         error: `User does not exist`
                     });
             }
-
+            console.log(user)
             req.user = user;
             next();
         })
