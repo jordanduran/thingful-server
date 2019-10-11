@@ -1,3 +1,5 @@
+const bcrypt = require('bcryptjs');
+
 function requireAuth(req, res, next) {    
     
     // get the authToken from the req
@@ -44,9 +46,17 @@ function requireAuth(req, res, next) {
                         error: `User does not exist`
                     });
             }
-            console.log(user)
-            req.user = user;
-            next();
+            // req.user = user;
+            // next();
+            return bcrypt.compare(tokenPassword, user.password)
+            .then(correctPassword => {
+                if(!correctPassword){
+                    return res.status(400).json({error: "Password doesn't match"})
+                }
+                req.user = user;
+                next();
+            })
+            
         })
     
 
