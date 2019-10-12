@@ -16,10 +16,7 @@ const AuthService = {
             subject,
             algorithm: 'HS256',
         })
-    },
-    
+    },    
 }
-
-
 
 module.exports = AuthService
