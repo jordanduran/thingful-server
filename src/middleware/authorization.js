@@ -58,9 +58,6 @@ function requireAuth(req, res, next) {
             })
             
         })
-    
-
-    
     // if it does exists then matching password using the hash
     // if everything is good then req.user = user, next()
 
