@@ -1,3 +1,4 @@
+const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/
 const userService = {
     validatePassword(password) {
         if (password.length < 8) {
@@ -9,10 +10,10 @@ const userService = {
         if (password.startsWith(' ') || password.endsWith(' ')) {
             return "No space before or after password"
         }
-        const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&])[\S]+/
+        
         //const REGEX_UPPER_LOWER_NUMBER_SPECIAL = new RegExp(/(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&])[\S]+/)
         if (!REGEX_UPPER_LOWER_NUMBER_SPECIAL.test(password)){
-            
+
             return "Password must contain an uppercase letter, lowercase letter, a number, and a special character"
         }
         return null
